@@ -1,0 +1,27 @@
+### Git ###
+*.orig
+
+### Output ###
+target
+dist/
+
+### Node ###
+node_modules/
+bower_components/
+package-lock.json
+
+### VSCode ###
+.vscode/
+
+### IDEA ###
+.idea/
+
+### VIM ###
+*~
+*.swp
+*.swo
+
+### General ###
+*.log
+*.lock*
+*.DS_Store

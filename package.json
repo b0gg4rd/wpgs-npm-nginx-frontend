@@ -1,0 +1,13 @@
+{
+  "name"        : "wpgs-npm-nginx-frontend",
+  "version"     : "1.0.0",
+  "description" : "The Proveedores sign up front web.",
+  "homepage"    : "https://github.com/b0gg4rd/wpgs-npm-nginx-frontend#readme",
+  "author"      : "boggard@hotmail.com",
+  "license"     : "ISC",
+  "main"        : "index.js",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
