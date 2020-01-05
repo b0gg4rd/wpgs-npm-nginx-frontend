@@ -53,6 +53,6 @@ $ docker run \
     npm start --build_profile=local
 ```
 
-The _web front_ must be in the location `http://localhost/`.
+The _web front_ must be in the location [](http://localhost/).
 
 
