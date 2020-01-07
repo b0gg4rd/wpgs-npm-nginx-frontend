@@ -31,17 +31,17 @@
     "webpack:help"      : "webpack --help",
 
     "pug"               : "pug -o dist src",
-    "build:pug"         : "run-s pug build:js restart",
+    "build:pug"         : "run-s pug restart",
     "watch:pug"         : "onchange 'src/**/*.pug' -- npm run build:pug",
 
-    "stylus"            : "stylus -o dist src",
-    "build:styl"        : "run-s stylus build:js restart",
+    "stylus"            : "stylus -c -o dist src",
+    "build:styl"        : "run-s stylus restart",
     "watch:styl"        : "onchange 'src/**/*.styl' -- npm run build:styl",
 
     "build:js"          : "webpack --config webpack.config.js",
     "watch:js"          : "onchange 'src/**/*.js' -- npm run build:js",
 
-    "build:image"       : "./scripts.sh image $npm_config_build_profile",
+    "build:image"       : "./scripts.sh image",
     "build:container"   : "run-s stop:container build:image start:container",
     "watch:container"   : "onchange 'docker/**/*.conf' -- npm run build:container",
     "start:container"   : "./scripts.sh container start",

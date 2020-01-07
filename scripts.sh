@@ -8,24 +8,11 @@
 IMAGE_ID=$npm_package_name:$npm_package_version
 
 image() {
-  if [ -z $1 ]; then
-    echo -e 'Usage:\n  ./scripts.sh image [local or dev or qa or prod]'
-    exit 1
-  fi
-
-  case $1 in
-    local|dev|qa|prod)
-      docker rmi $IMAGE_ID
-      docker build \
-        --build-arg PROFILE=$1 \
-        -f docker/Dockerfile \
-        -t $IMAGE_ID \
-        .
-      ;;
-    *)
-      echo -e 'Usage:\n  ./scripts.sh image [local or dev or qa or prod]'
-      exit 1
-  esac
+  docker rmi $IMAGE_ID
+  docker build \
+    -f docker/Dockerfile \
+    -t $IMAGE_ID \
+    .
 }
 
 container() {
@@ -57,46 +44,15 @@ container() {
   esac
 }
 
-registry() {
-  if [ -z $1 ]; then
-    echo -e 'Usage:\n  ./scripts.sh registry [dev or qa or prod]'
-    exit 1
-  fi
-
-  case $1 in
-    dev)
-      REPOSITORY_ID=$npm_package_config_registry_dev/$npm_package_name:$npm_package_version
-      ;;
-    qa)
-      REPOSITORY_ID=$npm_package_config_registry_qa/$npm_package_name:$npm_package_version
-      ;;
-    prod)
-      REPOSITORY_ID=$npm_package_config_registry_prod/$npm_package_name:$npm_package_version
-      ;;
-  esac
-
-  if [ $1 = dev ] || [ $1 = qa ] || [ $1 = prod ]; then
-    docker tag $IMAGE_ID $REPOSITORY_ID
-    docker push $REPOSITORY_ID
-  else
-    echo -e 'Usage:\n  ./scripts.sh registry [dev or qa or prod]'
-    exit 1
-  fi
-
-}
-
 case "$1" in
   'image')
-    image $2
+    image
     ;;
   'container')
     container $2
     ;;
-  'registry')
-    registry $2
-    ;;
   *)
-    echo -e 'Usage:\n  ./scripts.sh image [local or dev or qa or prod]'
+    echo -e 'Usage:\n  ./scripts.sh image or ./script.sh container'
     exit 1
 esac
 

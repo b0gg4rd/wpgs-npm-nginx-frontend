@@ -6,7 +6,7 @@ ARG PROFILE
 
 ENV TZ America/Mexico_City
 
-COPY docker/$PROFILE/default.conf /etc/nginx/conf.d/
+COPY docker/default.conf /etc/nginx/conf.d/
 
 COPY dist /usr/share/nginx/html/
 

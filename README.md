@@ -50,9 +50,9 @@ $ docker run \
     -v ${HOME}/.npm:${HOME}/.npm \
     -v /var/run/docker.sock:/var/run/docker.sock \
     devopslinko/linkomx-node:10.16.3-alpine \
-    npm start --build_profile=local
+    npm start
 ```
 
-The _web front_ must be in the location [](http://localhost/).
+The _web front_ must be in the location [http://localhost/](http://localhost/).
 
 

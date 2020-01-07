@@ -4,7 +4,8 @@ module.exports = {
   entry: './src/index.js',
   mode: 'production',
   output: {
-    filename: 'bundle.js',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
   }
 };
+
