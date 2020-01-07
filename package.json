@@ -16,6 +16,10 @@
     "webpack-cli"       : "3.3.10"
   },
 
+  "dependencies" : {
+    "lodash" : "4.16.6"
+  },
+
   "config": {
     "container_name" : "wpgs"
   },
